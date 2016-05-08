@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button mButton1,mButton2,mButton3,mButton4;
+    private Button mButton1,mButton2,mButton3,mButton4,mButton5;
     private ImageView mImageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +22,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButton2=(Button)findViewById(R.id.pve_but);
         mButton3=(Button)findViewById(R.id.set_but);
         mButton4=(Button)findViewById(R.id.layout_but);
+        mButton5=(Button)findViewById(R.id.view_but);
         mButton1.setOnClickListener(this);
         mButton2.setOnClickListener(this);
         mButton3.setOnClickListener(this);
         mButton4.setOnClickListener(this);
+        mButton5.setOnClickListener(this);
         mImageView=(ImageView)findViewById(R.id.image_test);
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch(v.getId()){
             case R.id.obj_but:
                 ObjAnimator();
@@ -42,7 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setAnimator();
                 break;
             case R.id.layout_but:
-                Intent intent=new Intent(this,TransitonActivity.class);
+                 intent=new Intent(this,TransitonActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.view_but:
+                intent=new Intent(this,LayoutAnimationActivity.class);
                 startActivity(intent);
                 break;
         }
